@@ -10,6 +10,7 @@ public class SynchronousSocketListener {
 
     public static void StartListening() {  
         // Data buffer for incoming data.  
+
         byte[] bytes = new Byte[1024];  
 
         // Establish the local endpoint for the socket.  
@@ -49,7 +50,8 @@ public class SynchronousSocketListener {
                 // Show the data on the console.  
                 Console.WriteLine( "Text received : {0}", data);  
 
-                // Echo the data back to the client.  
+                // Echo the data back to the client.
+                // Just for test, you can do whatever you want to do not just send the msg back
                 byte[] msg = Encoding.ASCII.GetBytes(data);  
 
                 handler.Send(msg);  
