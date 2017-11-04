@@ -5,7 +5,7 @@ using System.Text;
 
 public class SynchronousSocketClient {  
 
-    public static void StartClient() {  
+    public static void StartClient(Byte[] msg) {  
         // Data buffer for incoming data.  
         byte[] bytes = new byte[1024];  
 
@@ -28,8 +28,7 @@ public class SynchronousSocketClient {
                 Console.WriteLine("Socket connected to {0}",  
                     sender.RemoteEndPoint.ToString());  
 
-                // Encode the data string into a byte array.  
-                byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");  
+
 
                 // Send the data through the socket.  
                 int bytesSent = sender.Send(msg);  
@@ -57,7 +56,9 @@ public class SynchronousSocketClient {
     }  
 
     public static int Main(String[] args) {  
-        StartClient();  
+        // Encode the data string into a byte array.  
+        byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");          
+        StartClient(msg);  
         return 0;  
     }  
 }  
